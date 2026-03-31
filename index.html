@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级 AI 助理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col font-sans">
+
+    <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-xl">
+                K
+            </div>
+            <h1 class="text-xl font-bold text-gray-800">Kinkiliving 专属助理</h1>
+        </div>
+        <div class="text-sm text-gray-500">无限记忆库：<span class="text-green-500 font-semibold">已连接</span></div>
+    </header>
+
+    <main id="chat-container" class="flex-1 overflow-y-auto p-6 space-y-6 max-w-4xl mx-auto w-full">
+        <div class="flex justify-start">
+            <div class="bg-white border border-gray-200 text-gray-800 rounded-2xl rounded-tl-none px-5 py-3 shadow-sm max-w-[80%]">
+                老板好！我已经成功连入 Supabase 记忆库。今天我们需要策划什么新产品的营销内容？
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 p-4">
+        <div class="max-w-4xl mx-auto flex space-x-4">
+            <input type="text" id="user-input" 
+                class="flex-1 bg-gray-100 text-gray-800 rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-black transition-all" 
+                placeholder="输入你的指令，按回车发送..." 
+                autocomplete="off">
+            <button id="send-btn" 
+                class="bg-black hover:bg-gray-800 text-white rounded-full px-8 py-3 font-semibold transition-colors flex items-center space-x-2">
+                <span>发送</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // 🚨 请把你刚才在 n8n 复制的 Production Webhook URL 粘贴在下面的引号里！
+        const N8N_WEBHOOK_URL = '在这里填入你的_PRODUCTION_URL';
+
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // 生成并获取唯一的 Session ID (保证无限记忆不串台)
+        let sessionId = localStorage.getItem('agent_session_id');
+        if (!sessionId) {
+            sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
+            localStorage.setItem('agent_session_id', sessionId);
+        }
+
+        // 在页面上添加聊天气泡的函数
+        function addMessage(role, text) {
+            const isUser = role === 'user';
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
+            
+            msgDiv.innerHTML = `
+                <div class="${isUser ? 'bg-black text-white rounded-tr-none' : 'bg-white border border-gray-200 text-gray-800 rounded-tl-none'} 
+                    rounded-2xl px-5 py-3 shadow-sm max-w-[80%] whitespace-pre-wrap leading-relaxed">
+                    ${text}
+                </div>
+            `;
+            chatContainer.appendChild(msgDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight; // 自动滚动到底部
+        }
+
+        // 发送消息到 n8n 的核心逻辑
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // 1. 显示用户的消息
+            addMessage('user', text);
+            userInput.value = '';
+            userInput.disabled = true;
+            sendBtn.innerHTML = '思考中...';
+
+            try {
+                // 2. 将消息和 SessionID 发给 n8n
+                const response = await fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: text,
+                        sessionId: sessionId
+                    })
+                });
+
+                if (!response.ok) throw new Error('网络请求失败');
+                
+                // 3. 接收 n8n 返回的 JSON 数据
+                const data = await response.json();
+                
+                // 4. 显示 Agent 的回复
+                addMessage('agent', data.reply || "我收到指令了，但没有返回具体文本。");
+
+            } catch (error) {
+                console.error(error);
+                addMessage('agent', '❌ 抱歉，大脑连接中断，请检查 n8n 的 Webhook 是否已激活。');
+            } finally {
+                userInput.disabled = false;
+                userInput.focus();
+                sendBtn.innerHTML = '发送';
+            }
+        }
+
+        // 绑定点击和回车事件
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
