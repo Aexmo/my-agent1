@@ -1,240 +1,280 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>忠诚的小桂子 - 营销与视觉策略助手</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* 深度定制 CSS：极致清爽与艺术气息 */
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background-color: #FDFCF5; /* 象牙白画纸感 */
-            background-image: url("https://www.transparenttextures.com/patterns/fine-linen.png"); /* 极细亚麻纹理 */
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>御膳房策劃助手 - 小桂子在此侍奉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 深度定制 CSS：极致清爽與藝術气息 */
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #FDFCF5; /* 象牙白画纸感 */
+            background-image: url("https://www.transparenttextures.com/patterns/fine-linen.png"); /* 极细亚麻纹理 */
+        }
 
-        .art-title {
-            font-family: 'Playfair Display', serif; /* 优雅的艺术 Serif 字体 */
-            color: #333333; /* 艺术深灰 */
-            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-            letter-spacing: 0.5px;
-        }
+        .art-title {
+            font-family: 'Playfair Display', serif; /* 优雅的艺术 Serif 字体 */
+            color: #333333; /* 艺术深灰 */
+            text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.5px;
+        }
 
-        /* 老板（用户）的消息：深灰蓝石板标签 */
-        .msg-user {
-            background-color: #1a2a3a;
-            border: 1px solid #c9b996; /* 淡淡金色调 */
-            border-right: none;
-            color: #f0f0f5;
-            border-radius: 1.5rem 0rem 1.5rem 1.5rem;
-            box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        .msg-user::after {
-            content: '';
-            position: absolute;
-            top: -1px;
-            right: -1px;
-            width: 15px;
-            height: 15px;
-            background-color: #FDFCF5; /* 象牙白画纸色，模拟缺口 */
-            border-left: 1px solid #c9b996;
-            border-bottom: 1px solid #c9b996;
-        }
+        /* 老板（用户）的消息：深灰蓝石板标签 */
+        .msg-user {
+            background-color: #1a2a3a;
+            border: 1px solid #c9b996; /* 淡淡金色调 */
+            border-right: none;
+            color: #f0f0f5;
+            border-radius: 1.5rem 0rem 1.5rem 1.5rem;
+            box-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .msg-user::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 15px;
+            height: 15px;
+            background-color: #FDFCF5; /* 象牙白画纸色，模拟缺口 */
+            border-left: 1px solid #c9b996;
+            border-bottom: 1px solid #c9b996;
+        }
 
-        /* 小桂子（AI）的消息：极淡灰卡片，带有柔和荧光底座 */
-        .msg-agent {
-            background-color: #f7f7f9; /* 极淡灰（近白） */
-            color: #44444a; /* 艺术深灰 */
-            border: none;
-            box-shadow: 0 0 20px rgba(168, 189, 177, 0.15); /* 鼠尾草绿柔和荧光底座 */
-            border-radius: 0rem 1.5rem 1.5rem 1.5rem;
-            position: relative;
-        }
+        /* 小桂子（AI）的消息：極淡灰卡片，帶有柔和熒光底座 */
+        .msg-agent {
+            background-color: #f7f7f9; /* 極淡灰（近白） */
+            color: #44444a; /* 藝術深灰 */
+            border: none;
+            box-shadow: 0 0 20px rgba(168, 189, 177, 0.15); /* 鼠尾草綠柔和熒光底座 */
+            border-radius: 0rem 1.5rem 1.5rem 1.5rem;
+            position: relative;
+        }
 
-        /* 输入框的荧光效果 */
-        #user-input {
-            background-color: #fdfdfd;
-            color: #33333a;
-            border: 2px solid #e0e0e5; /* 极细淡金色边框 */
-            transition: all 0.3s;
-        }
-        
-        #user-input:focus {
-            outline: none;
-            border-color: #c9b996; /* 金色调 */
-            box-shadow: 0 0 10px rgba(201, 185, 150, 0.4);
-        }
+        /* 輸入框的熒光效果 */
+        #user-input {
+            background-color: #fdfdfd;
+            color: #33333a;
+            border: 2px solid #e0e0e5; /* 極細淡金色邊框 */
+            transition: all 0.3s;
+        }
+        
+        #user-input:focus {
+            outline: none;
+            border-color: #c9b996; /* 金色調 */
+            box-shadow: 0 0 10px rgba(201, 185, 150, 0.4);
+        }
 
-        /* 发送按钮：极简图标 */
-        #send-btn {
-            background: none;
-            color: #A8BDB1; /* 鼠尾草绿 */
-            transition: all 0.2s;
-            border: none;
-        }
-        
-        #send-btn:hover {
-            color: #c9b996; /* 金色调 */
-            transform: scale(1.1);
-        }
-        
-        #send-btn:active {
-            transform: scale(0.95);
-        }
-        
-        /* 滚动手柄 */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #FDFCF5; }
-        ::-webkit-scrollbar-thumb { background: #e0e0e5; border-radius: 2px; }
-        ::-webkit-scrollbar-thumb:hover { background: #A8BDB1; }
+        /* 发送按钮：极简图标 */
+        #send-btn {
+            background: none;
+            color: #A8BDB1; /* 鼠尾草綠 */
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        #send-btn:hover {
+            color: #c9b996; /* 金色調 */
+            transform: scale(1.1);
+        }
+        
+        #send-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* 滚动手柄 */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #FDFCF5; }
+        ::-webkit-scrollbar-thumb { background: #e0e0e5; border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A8BDB1; }
 
-    </style>
+        /* 宫廷主题的特殊 CSS */
+        .imperial-header {
+            background-color: #fcfcf9;
+            border-bottom: 2px solid rgba(224, 224, 229, 0.3);
+            border-radius: 0px 0px 10px 10px;
+        }
+        .imperial-roof-line {
+            background-color: #c9b996; /* 淡淡金色 */
+            border-radius: 0px 0px 10px 10px;
+        }
+        .dragon-seal-icon {
+            color: #A8BDB1; /* 鼠尾草綠 */
+        }
+        
+        /* 公公太監頭像樣式 */
+        .avatar-eunuch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid rgba(168, 189, 177, 0.3);
+        }
+        .avatar-eunuch img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+    </style>
 </head>
 <body class="h-screen flex flex-col">
 
-    <header class="bg-white/80 backdrop-blur-sm p-5 px-8 flex items-center justify-between border-b-2 border-[#e0e0e5]/30">
-        <div class="flex items-center space-x-4">
-            <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" stroke="#e0e0e5" stroke-width="2" fill="none"/>
-                <path d="M50 20 V80 M20 50 H80" stroke="#c9b996" stroke-width="2"/>
-                <circle cx="50" cy="50" r="10" stroke="#A8BDB1" stroke-width="4" stroke-dasharray="2 2"/>
-            </svg>
-            <h1 class="text-4xl art-title tracking-widest">忠诚的小桂子</h1>
-        </div>
-        <div class="flex items-center space-x-3 border-2 border-[#A8BDB1]/20 rounded-full px-4 py-2 bg-white/50">
-            <div class="w-3 h-3 rounded-full bg-[#A8BDB1]" style="box-shadow: 0 0 8px rgba(168, 189, 177, 0.5);"></div>
-            <div class="text-xs tracking-wider" style="color: #44444a;">海利亚记忆网络</div>
-        </div>
-    </header>
+    <header class="imperial-header p-5 px-8 flex items-center justify-between shadow-inner">
+        <div class="flex items-center space-x-4">
+            <svg class="w-10 h-10 dragon-seal-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M50 20 V80 M20 50 H80" stroke="currentColor" stroke-width="2"/>
+                <circle cx="50" cy="50" r="10" stroke="currentColor" stroke-width="4" stroke-dasharray="2 2"/>
+            </svg>
+            <h1 class="text-4xl art-title tracking-widest">御膳房策劃助手</h1>
+        </div>
+        <div class="flex items-center space-x-3 border-2 border-[#A8BDB1]/20 rounded-full px-4 py-2 bg-white/50">
+            <div class="w-3 h-3 rounded-full bg-[#A8BDB1]" style="box-shadow: 0 0 8px rgba(168, 189, 177, 0.5);"></div>
+            <div class="text-xs tracking-wider" style="color: #44444a;">海利亚记忆网络</div>
+        </div>
+    </header>
+    
+    <div class="max-w-6xl mx-auto w-full px-8 -mt-2">
+        <div class="h-1 imperial-roof-line"></div>
+    </div>
 
-    <main id="chat-container" class="flex-1 overflow-y-auto p-8 space-y-8 max-w-6xl mx-auto w-full">
-        <div class="flex justify-start">
-            <div class="msg-agent px-8 py-5 shadow-xl max-w-[85%] whitespace-pre-wrap leading-relaxed tracking-wider">
-                老板好，这里是忠诚的小桂子。
-无论是旗下各个品牌的视觉策划，还是多平台的电商营销方案，请尽情对我说。
-            </div>
-        </div>
-    </main>
+    <main id="chat-container" class="flex-1 overflow-y-auto p-8 space-y-8 max-w-6xl mx-auto w-full">
+        <div class="flex justify-start items-start">
+            <div class="avatar-eunuch">
+                <img src="https://example.com/eunuch_avatar.png" alt="小桂子頭像">
+            </div>
+            <div class="msg-agent px-8 py-5 shadow-xl max-w-[85%] whitespace-pre-wrap leading-relaxed tracking-wider">
+奴才遵旨！万岁万岁万万岁！
+老闆好，御膳房當差小桂子在此侍奉。奴才隨時恭候，的老板若是有關貓籠的任何展示規範或營銷策划需求，請的老板下旨。
+            </div>
+        </div>
+    </main>
 
-    <footer class="p-6 pb-10 relative">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-[#e0e0e5]/30"></div>
-        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-20 h-3 bg-[#A8BDB1]/30" style="border-radius: 0 0 10px 10px;"></div>
+    <footer class="p-6 pb-10 relative">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-[#e0e0e5]/30"></div>
+        <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-20 h-3 bg-[#A8BDB1]/30" style="border-radius: 0 0 10px 10px;"></div>
 
-        <div class="max-w-6xl mx-auto flex items-center space-x-6">
-            <input type="text" id="user-input" 
-                class="flex-1 rounded-2xl px-7 py-5 text-base focus:outline-none placeholder:text-[#a0a0aa]" 
-                placeholder="请授予具体的策划指令..." 
-                autocomplete="off">
-            
-            <button id="send-btn" 
-                class="w-16 h-16 rounded-full font-serif flex items-center justify-center text-black font-bold tracking-tighter text-sm">
-                <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="4" fill="none"/>
-                    <path d="M50 20 V80 M20 50 H80" stroke="currentColor" stroke-width="4"/>
-                </svg>
-            </button>
-        </div>
-    </footer>
+        <div class="max-w-6xl mx-auto flex items-center space-x-6">
+            <input type="text" id="user-input" 
+                class="flex-1 rounded-2xl px-7 py-5 text-base focus:outline-none placeholder:text-[#a0a0aa]" 
+                placeholder="老板請下旨..." 
+                autocomplete="off">
+            
+            <button id="send-btn" 
+                class="w-16 h-16 rounded-full font-serif flex items-center justify-center text-black font-bold tracking-tighter text-sm">
+                <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="4" fill="none"/>
+                    <path d="M50 20 V80 M20 50 H80" stroke="currentColor" stroke-width="4"/>
+                </svg>
+            </button>
+        </div>
+    </footer>
 
-    <script>
-        // 🚨 请把你刚才在 n8n 复制的 Production Webhook URL 粘贴在下面的引号里！
-        const N8N_WEBHOOK_URL = 'https://zcaaron7.app.n8n.cloud/webhook/my-super-agent';
+    <script>
+        // 🚨 請的老板把我替換成你的 Production Webhook URL！
+        const N8N_WEBHOOK_URL = 'https://zcaaron7.app.n8n.cloud/webhook/my-super-agent'; 
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
 
-        const chatContainer = document.getElementById('chat-container');
-        const userInput = document.getElementById('user-input');
-        const sendBtn = document.getElementById('send-btn');
+        // 生成并获取唯一的 Session ID (保证无限记忆不串台)
+        let sessionId = localStorage.getItem('agent_session_id');
+        if (!sessionId) {
+            // 生成一个模擬 Sheikah Slate ID 风格的 random
+            sessionId = 'SLATE_' + Math.random().toString(36).substring(2, 10).toUpperCase();
+            localStorage.setItem('agent_session_id', sessionId);
+        }
 
-        // 生成并获取唯一的 Session ID (保证无限记忆不串台)
-        let sessionId = localStorage.getItem('agent_session_id');
-        if (!sessionId) {
-            // 生成一个模拟 Sheikah Slate ID 风格的 random
-            sessionId = 'SLATE_' + Math.random().toString(36).substring(2, 10).toUpperCase();
-            localStorage.setItem('agent_session_id', sessionId);
-        }
+        // 輸入框邏輯：當有內容時，按鈕變成金色
+        userInput.addEventListener('input', () => {
+            if (userInput.value.trim().length > 0) {
+                sendBtn.classList.add('ready');
+                sendBtn.querySelector('span').innerHTML = '釋放';
+                sendBtn.style.color = '#c9b996'; // 金色調
+            } else {
+                sendBtn.classList.remove('ready');
+                sendBtn.querySelector('span').innerHTML = '充能';
+                sendBtn.style.color = '#A8BDB1'; // 鼠尾草綠
+            }
+        });
 
-        // 输入框逻辑：当有内容时，按钮变成金色
-        userInput.addEventListener('input', () => {
-            if (userInput.value.trim().length > 0) {
-                sendBtn.classList.add('ready');
-                sendBtn.querySelector('span').innerHTML = '释放';
-            } else {
-                sendBtn.classList.remove('ready');
-                sendBtn.querySelector('span').innerHTML = '充能';
-            }
-        });
+        // 在页面上添加聊天气泡的函数
+        function addMessage(role, text) {
+            const isUser = role === 'user';
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start items-start'} w-full`;
+            
+            if (isUser) {
+                msgDiv.innerHTML = `
+                    <div class="msg-user px-8 py-5 shadow-xl max-w-[85%] whitespace-pre-wrap leading-relaxed tracking-wider">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                msgDiv.innerHTML = `
+                    <div class="avatar-eunuch">
+                        <img src="https://example.com/eunuch_avatar.png" alt="小桂子頭像">
+                    </div>
+                    <div class="msg-agent px-8 py-5 shadow-xl max-w-[85%] whitespace-pre-wrap leading-relaxed tracking-wider">
+                        ${text}
+                    </div>
+                `;
+            }
+            chatContainer.appendChild(msgDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight; // 自动滚动到底部
+        }
 
-        // 在页面上添加聊天气泡的函数
-        function addMessage(role, text) {
-            const isUser = role === 'user';
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'} w-full`;
-            
-            if (isUser) {
-                msgDiv.innerHTML = `
-                    <div class="msg-user px-8 py-5 shadow-xl max-w-[85%] whitespace-pre-wrap leading-relaxed tracking-wider">
-                        ${text}
-                    </div>
-                `;
-            } else {
-                msgDiv.innerHTML = `
-                    <div class="msg-agent px-8 py-5 shadow-xl max-w-[85%] whitespace-pre-wrap leading-relaxed tracking-wider">
-                        ${text}
-                    </div>
-                `;
-            }
-            chatContainer.appendChild(msgDiv);
-            chatContainer.scrollTop = chatContainer.scrollHeight; // 自动滚动到底部
-        }
+        // 发送消息到 n8n 的核心逻辑
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
 
-        // 发送消息到 n8n 的核心逻辑
-        async function sendMessage() {
-            const text = userInput.value.trim();
-            if (!text) return;
+            // 1. 显示用户的消息
+            addMessage('user', text);
+            userInput.value = '';
+            userInput.disabled = true;
+            sendBtn.innerHTML = '<span class="animate-pulse">充能中...</span>';
+            sendBtn.classList.remove('ready');
 
-            // 1. 显示用户的消息
-            addMessage('user', text);
-            userInput.value = '';
-            userInput.disabled = true;
-            sendBtn.innerHTML = '<span class="animate-pulse">充能中...</span>';
-            sendBtn.classList.remove('ready');
+            try {
+                // 2. 将消息和 SessionID 发给 n8n
+                const response = await fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: text,
+                        sessionId: sessionId
+                    })
+                });
 
-            try {
-                // 2. 将消息和 SessionID 发给 n8n
-                const response = await fetch(N8N_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        message: text,
-                        sessionId: sessionId
-                    })
-                });
+                if (!response.ok) throw new Error('网络请求失败');
+                
+                // 3. 接收 n8n 返回的 JSON 数据
+                const data = await response.json();
+                
+                // 4. 显示 Agent 的回复
+                addMessage('agent', data.reply || "。指令已确认，但未能返回海利亚信息文本。的老板請稍後再試。");
 
-                if (!response.ok) throw new Error('网络请求失败');
-                
-                // 3. 接收 n8n 返回的 JSON 数据
-                const data = await response.json();
-                
-                // 4. 显示 Agent 的回复
-                addMessage('agent', data.reply || "。指令已确认，但未能返回海利亚信息文本。");
+            } catch (error) {
+                console.error(error);
+                addMessage('agent', '❌ 指令传送中断。皇上请确认为“忠诚的小桂子”激活了 n8n Webhook。');
+            } finally {
+                userInput.disabled = false;
+                userInput.focus();
+                sendBtn.innerHTML = '<span>赏</span>';
+            }
+        }
 
-            } catch (error) {
-                console.error(error);
-                addMessage('agent', '❌ 指令传送中断。请的老板确认为“忠诚的小桂子”激活了 n8n Webhook。');
-            } finally {
-                userInput.disabled = false;
-                userInput.focus();
-                sendBtn.innerHTML = '<span>充能</span>';
-            }
-        }
-
-        // 绑定点击和回车事件
-        sendBtn.addEventListener('click', sendMessage);
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendMessage();
-        });
-    </script>
+        // 绑定点击和回车事件
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
 </body>
 </html>
